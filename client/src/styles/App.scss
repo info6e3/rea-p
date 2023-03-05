@@ -1,0 +1,278 @@
+// Variable overrides first
+$offcanvas-horizontal-width: min(900px, 100vw);
+// Then import Bootstrap
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  overflow-y: auto;
+}
+
+//allow
+.hide-container {
+  max-height: 0;
+  position: relative;
+  z-index: 5;
+}
+
+//Components
+//Booking
+.booking {
+  font-size: 1.2em;
+}
+
+//FlatCard
+.flat-card {
+  overflow: hidden;
+
+  .flat-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    font-size: 1.2em;
+
+    .flat-title {
+      font-size: 1.2em;
+    }
+
+    color: black;
+  }
+
+  .flat-link:hover {
+    color: dimgray;
+  }
+
+  .flat-link:after {
+    content: '';
+    width: 40%; /* 1 */
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%); /* 2 */
+    top: 0;
+    right: 0;
+  }
+}
+
+//BookingOrderCard
+.booking-order-card {
+
+  .flat-link {
+    text-decoration: none;
+    color: black;
+  }
+  .flat-link:hover {
+    color: dimgray;
+  }
+  table {
+    td {
+      border: 1px solid black;
+      padding: 5px;
+    }
+  }
+}
+
+//InactiveBackground
+.inactive-background {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+//OfferPanel
+.offer-panel {
+  ////BAD
+  //margin-top: 63px;
+  position: relative;
+  z-index: 10 !important;
+
+  .offcanvas-header {
+    margin-top: 60px;
+  }
+}
+
+//app
+.app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+//header
+header {
+  background: white;
+  z-index: 15;
+
+  .main-logo {
+    font-size: 1.4em;
+    margin: 0;
+  }
+
+  .person-circle {
+    display: inline-block;
+    width: 34px;
+  }
+
+  .enter_form {
+    position: fixed;
+    background: white;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
+
+//footer
+footer {
+  position: relative;
+}
+
+//balloon
+.balloon {
+  position: relative;
+  background: white;
+  display: inline-block;
+  width: 300px;
+
+  .arrow {
+    $size: 20px;
+    height: $size;
+    position: absolute;
+    bottom: -$size;
+    left: 50%;
+    transform: translate(-$size);
+    z-index: 3;
+    width: 0;
+
+    border-width: $size;
+    border-style: solid;
+    border-top-color: #dee2e6 !important;
+    border-color: transparent;
+
+    border-bottom-width: 0;
+    background-clip: content-box;
+
+    .inner-arrow {
+      $inner-size: $size - 1;
+      background: white;
+      position: relative;
+      bottom: $size;
+      transform: translate(-$inner-size);
+
+      border-width: $inner-size;
+      border-style: solid;
+      border-top-color: white !important;
+      border-color: transparent;
+
+      border-bottom-width: 0;
+      color: black;
+      background-clip: content-box;
+    }
+  }
+}
+
+//Pages
+//StartPage
+.start-page {
+  flex-direction: column;
+
+  .map-container-small {
+    left: $offcanvas-horizontal-width !important;
+    width: calc(100vw - $offcanvas-horizontal-width) !important;
+    min-width: 100px;
+  }
+
+  .map-container {
+    width: 100%;
+    position: relative;
+    height: calc(100vh - 63px);
+
+    .icon-content {
+      background: white;
+      display: inline-block;
+      font-size: 1.5em;
+      padding: 2px;
+    }
+  }
+}
+
+.rent-out-page {
+  height: 100%;
+
+  .map-container {
+    width: 100%;
+    position: relative;
+    height: 100%;
+  }
+
+  textarea {
+    max-height: 300px;
+    min-height: 160px;
+  }
+}
+
+.profile-page {
+
+  .profile-nav {
+
+    button {
+      border-bottom-left-radius: 0  !important;
+      border-bottom-right-radius: 0 !important;
+      font-size: 1.2em;
+    }
+
+    .selected {
+      border-bottom: none !important;
+    }
+  }
+
+  .content {
+    border-top: none !important;
+  }
+
+  .profile-photo {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile {
+    font-size: 1.2em;
+
+    table {
+      td {
+        border: 1px solid #dddddd;
+        padding: 5px;
+      }
+    }
+  }
+}
+
+.registration-page {
+  .select-role {
+    transition: 0.8s;
+    font-size: 3em;
+    transform: scale(0.8);
+
+    div {
+      transform: scale(0.8);
+      transition: 0.8s;
+    }
+
+    div:hover {
+      cursor: pointer;
+      transform: scale(1);
+    }
+  }
+
+  .select-role:hover {
+    transform: scale(1);
+  }
+}
